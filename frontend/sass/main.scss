@@ -1,175 +1,55 @@
-@import "js_widgets/slick";
-@import "index";
-@import "fonts";
-@import "color";
-@import "icofonts";
-@import "slick";
-@import "title";
-@import "proects";
-@import "header";
-@import "catalog";
-@import "inform";
-@import "kamin24";
-@import "know";
-
-
-
-
-ul,
-ul li,
-ul li a,
-ul li a span {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: none;
-	list-style: none;
+.cubo {
+	position: relative;
+	margin: 150px auto;
+	height: 200px;
+	width: 200px;
+	animation:giro 25s infinite linear;
+	transform-style:preserve-3d;
 }
-
-.clearfix {
-	&:before,
-	&:after {
-		content: " ";
-		display: table;
-	}
-	&:after {
-		clear: both;
-	}
+.cubo div {
+	position: absolute;
+	height: 200px;
+	width: 200px;
+	-moz-cubo-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5); /* Firefox anti aliasing */
+	animation:rotate 15s infinite linear;
 }
-
-body, html {
-	margin: 0;
-	padding: 0;
-	line-height: 1;
-	height: 100%;
-	font-family: 'calibril', serif;
+.cubo div img {
+	width:200px;
+	height:200px;
+	border-radius:200px;
+	margin: 0; padding: 0; border: 0 none transparent;
+	animation:rot 5s infinite linear;
 }
-body {
-	background: url(../images/bg.jpg) repeat;
-	background-attachment: fixed
+.cubo div.cara1 {
+	background:rgba(0,102,153,.5);
+	transform:translateZ(100px);
 }
-*,*:after,*:before {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+.cubo div.cara2 {
+	background:rgba(150,153,0,.7);
+	transform:rotateY(90deg) translateZ(100px);
 }
-
-img {
-	display: block;
+.cubo div.cara3 {
+	background:rgba(39,116,61,.7);
+	transform:rotateY(180deg) translateZ(100px);
 }
-a, a:hover, a:active, a:visited {
-	text-decoration: none;
+.cubo div.cara4 {
+	background:rgba(105,136,165,.7);
+	transform:rotateY(-90deg) translateZ(100px);
 }
-
-.contentFix {
-	width: 90%;
-	margin: 0 auto;
+.cubo div.cara5 {
+	background:rgba(223,48,48,.7);
+	transform:rotateX(-90deg) translateZ(100px) rotate(180deg);
 }
-
-
-@media screen and (max-width: 1024px) {
-	.catalogKamenuAll {
-		.owl__item, .two__item {
-			width: 50%;
-			font-size: 34px;
-		}
-		.one__item {
-			 width: 100%;
-			font-size: 50px;
-		 }
-	}
-	.information {
-		.information__block {
-			font-size: 30px;
-			flex-wrap: wrap;
-		}
-		.one__information {
-			width: 100%;
-			&:first-child {
-				margin: 0 0 20px 0;
-			}
-		}
-	}
-	header {
-		background: #0d2334;
-		.menu {
-			display: block;
-			position: absolute;
-			top: 69px;
-			width: 100%;
-			left: 0;
-			background: #192e3e;
-			font-size: 22px;
-			li {
-				display: block;
-				width: 100%;
-				border-top: 1px solid rgba(255, 255, 255, .05);
-				line-height: 60px;
-				margin: 0;
-				a {
-					padding-left: 5%;
-				}
-			}
-		}
-		.menu__list {
-			a {
-				display: block;
-				width: 100%;
-			}
-			.arrow {
-				width: 40px;
-				height: 40px;
-				border-radius: 3px;
-				background: rgba(255, 255, 255, .05);
-				display: block;
-				position: absolute;
-				top: 10px;
-				right: 5%;
-				&:hover {
-						transform: rotate(180deg);
-				}
-				&:active {
-					.menu__drop {
-						display: none;
-					}
-				}
-			}
-			.icon-ico-11:before {
-				content: "\e903";
-				position: absolute;
-				top: 9px;
-				left: 11px;
-				font-size: 19px;
-			}
-			.menu__drop {
-				text-align: left;
-				background: rgba(0, 0, 0, .2);
-				display: block;
-				width: 100%;
-				padding: 0;
-				li {
-					img {
-						display: none;
-					}
-				}
-			}
-		}
+.cubo div.cara6 {
+	background:rgba(144,153,102,.7);
+	transform:rotateX(90deg) translateZ(100px);
+}
+@keyframes giro {
+	0% {transform: rotateX(0deg)   rotateY(0deg);}
+	100% {transform: rotateX(1080deg) rotateY(360deg);
 	}
 }
-
-@media screen and (max-width: 480px) {
-	.catalogKamenuAll {
-		.owl__item, .one__item, .two__item {
-			width: 100%;
-			font-size: 60px;
-		}
-	}
-}
-
-@media screen and (min-width: 600px) and (max-width: 800px){
-	header {
-		.lang {
-			display:none;
-		}
-	}
+@keyframes rot {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
 }
